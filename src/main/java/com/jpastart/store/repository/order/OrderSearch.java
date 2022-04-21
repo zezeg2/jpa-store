@@ -1,4 +1,4 @@
-package com.jpastart.store.repository;
+package com.jpastart.store.repository.order;
 
 import com.jpastart.store.domain.status.OrderStatus;
 import lombok.Getter;

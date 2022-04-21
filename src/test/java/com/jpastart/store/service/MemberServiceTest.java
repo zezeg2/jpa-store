@@ -1,12 +1,11 @@
 package com.jpastart.store.service;
 
-import com.jpastart.store.domain.member.Member;
-import com.jpastart.store.repository.MemberRepository;
+import com.jpastart.store.domain.member.entity.Member;
+import com.jpastart.store.repository.member.MemberRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;

@@ -1,8 +1,7 @@
 package com.jpastart.store.service;
 
-import com.jpastart.store.domain.item.Book;
 import com.jpastart.store.domain.item.Item;
-import com.jpastart.store.repository.ItemRepository;
+import com.jpastart.store.repository.item.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

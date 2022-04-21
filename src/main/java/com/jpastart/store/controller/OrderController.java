@@ -1,9 +1,9 @@
 package com.jpastart.store.controller;
 
 import com.jpastart.store.domain.item.Item;
-import com.jpastart.store.domain.member.Member;
-import com.jpastart.store.domain.order.Order;
-import com.jpastart.store.repository.OrderSearch;
+import com.jpastart.store.domain.member.entity.Member;
+import com.jpastart.store.domain.order.entity.Order;
+import com.jpastart.store.repository.order.OrderSearch;
 import com.jpastart.store.service.ItemService;
 import com.jpastart.store.service.MemberService;
 import com.jpastart.store.service.OrderService;

@@ -1,8 +1,8 @@
-package com.jpastart.store.domain.order;
+package com.jpastart.store.domain.order.entity;
 
 import com.jpastart.store.domain.delivery.Delivery;
-import com.jpastart.store.domain.member.Member;
-import com.jpastart.store.domain.orderitem.OrderItem;
+import com.jpastart.store.domain.member.entity.Member;
+import com.jpastart.store.domain.orderitem.entity.OrderItem;
 import com.jpastart.store.domain.status.DeliveryStatus;
 import com.jpastart.store.domain.status.OrderStatus;
 import lombok.Getter;
@@ -28,7 +28,9 @@ public class Order {
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "member_id")
+//    @JsonBackReference
     private Member member;
+
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();

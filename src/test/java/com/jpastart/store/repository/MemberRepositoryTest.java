@@ -1,19 +1,14 @@
 package com.jpastart.store.repository;
 
-import com.jpastart.store.domain.member.Member;
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import com.jpastart.store.repository.member.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
-
-import javax.transaction.Transactional;
 
 @SpringBootTest
 class MemberRepositoryTest {
 
-    @Autowired MemberRepository memberRepository;
+    @Autowired
+    MemberRepository memberRepository;
 
 //    @DisplayName("1.")
 //    @Test

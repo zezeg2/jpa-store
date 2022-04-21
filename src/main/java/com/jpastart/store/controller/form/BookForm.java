@@ -1,10 +1,7 @@
 package com.jpastart.store.controller.form;
 
-import com.jpastart.store.domain.order.Order;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.ArrayList;
 
 @Getter
 @Setter

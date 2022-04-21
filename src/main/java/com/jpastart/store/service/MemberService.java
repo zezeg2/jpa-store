@@ -1,7 +1,7 @@
 package com.jpastart.store.service;
 
-import com.jpastart.store.domain.member.Member;
-import com.jpastart.store.repository.MemberRepository;
+import com.jpastart.store.domain.member.entity.Member;
+import com.jpastart.store.repository.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,4 +43,10 @@ public class MemberService {
     }
 
 
+    @Transactional
+    public void update(Long id, String name) {
+        Member member = memberRepository.findOne(id);
+        member.setName(name);
+
+    }
 }

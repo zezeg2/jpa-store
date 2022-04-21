@@ -1,4 +1,4 @@
-package com.jpastart.store.repository;
+package com.jpastart.store.repository.item;
 
 import com.jpastart.store.domain.item.Item;
 import lombok.RequiredArgsConstructor;

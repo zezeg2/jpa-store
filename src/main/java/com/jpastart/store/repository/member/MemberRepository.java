@@ -1,11 +1,10 @@
-package com.jpastart.store.repository;
+package com.jpastart.store.repository.member;
 
-import com.jpastart.store.domain.member.Member;
+import com.jpastart.store.domain.member.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository

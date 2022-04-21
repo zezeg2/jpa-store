@@ -3,13 +3,13 @@ package com.jpastart.store.service;
 import com.jpastart.store.domain.address.Address;
 import com.jpastart.store.domain.item.Book;
 import com.jpastart.store.domain.item.Item;
-import com.jpastart.store.domain.member.Member;
-import com.jpastart.store.domain.order.Order;
+import com.jpastart.store.domain.member.entity.Member;
+import com.jpastart.store.domain.order.entity.Order;
 import com.jpastart.store.domain.status.OrderStatus;
 import com.jpastart.store.exception.NotEnoughStockException;
-import com.jpastart.store.repository.ItemRepository;
-import com.jpastart.store.repository.MemberRepository;
-import com.jpastart.store.repository.OrderRepository;
+import com.jpastart.store.repository.item.ItemRepository;
+import com.jpastart.store.repository.member.MemberRepository;
+import com.jpastart.store.repository.order.OrderRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +50,7 @@ class OrderServiceTest {
 
         // then
         Order getOrder = orderRepository.findOne(orderId);
-        assertEquals(OrderStatus.ORDER, getOrder.getStatus());
+        assertEquals(OrderStatus.ORDER, getOrder.getOrderStatus());
         assertEquals(1, getOrder.getOrderItems().size());
         assertEquals(10000 * orderCount, getOrder.getTotalPrice());
         assertEquals(10, book.getStockQuantity());
@@ -86,7 +86,7 @@ class OrderServiceTest {
         orderService.cancelOrder(orderId);
 
         // then
-        assertEquals(OrderStatus.CANCEL, orderRepository.findOne(orderId).getStatus());
+        assertEquals(OrderStatus.CANCEL, orderRepository.findOne(orderId).getOrderStatus());
         assertEquals(20, book.getStockQuantity());
     }
 
