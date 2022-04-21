@@ -6,6 +6,7 @@ import com.jpastart.store.domain.order.entity.Order;
 import com.jpastart.store.repository.order.OrderDtoQueryRepository;
 import com.jpastart.store.repository.order.OrderRepository;
 import com.jpastart.store.repository.order.OrderSearch;
+import com.jpastart.store.repository.order.SimpleOrderDtoQueryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,7 +26,7 @@ public class OrderSimpleApiController {
 
     private final OrderRepository orderRepository;
 
-    private final OrderDtoQueryRepository orderDtoQueryRepository;
+    private final SimpleOrderDtoQueryRepository simpleOrderDtoQueryRepository;
 
     @GetMapping("/api/v1/simple-orders")
     public List<Order> ordersV1(){
@@ -64,6 +65,6 @@ public class OrderSimpleApiController {
 
     @GetMapping("/api/v4/simple-orders")
     public List<SimpleOrderQueryDto> ordersV4(){
-        return orderDtoQueryRepository.findOrderDto();
+        return simpleOrderDtoQueryRepository.findSimpleOrderDto();
     }
 }

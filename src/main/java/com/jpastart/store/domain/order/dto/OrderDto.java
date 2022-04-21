@@ -5,6 +5,7 @@ import com.jpastart.store.domain.order.entity.Order;
 import com.jpastart.store.domain.orderitem.dto.OrderItemDto;
 import com.jpastart.store.domain.orderitem.entity.OrderItem;
 import com.jpastart.store.domain.status.OrderStatus;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Data
+@AllArgsConstructor
 public class OrderDto {
 
     private Long orderId;
