@@ -58,7 +58,8 @@ public class OrderService {
     }
     // 검색
     public List<Order> findOlders(OrderSearch orderSearch){
-        return orderRepository.findAllbyString(orderSearch);
+//        return orderRepository.findAllbyString(orderSearch);
+        return orderRepository.findAll(orderSearch);
     }
 }
 

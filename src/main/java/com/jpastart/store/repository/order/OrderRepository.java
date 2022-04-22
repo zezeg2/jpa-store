@@ -1,7 +1,12 @@
 package com.jpastart.store.repository.order;
 
+import com.jpastart.store.domain.member.entity.QMember;
 import com.jpastart.store.domain.order.dto.SimpleOrderQueryDto;
 import com.jpastart.store.domain.order.entity.Order;
+import com.jpastart.store.domain.order.entity.QOrder;
+import com.jpastart.store.domain.status.OrderStatus;
+import com.querydsl.core.types.dsl.BooleanExpression;
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
@@ -107,6 +112,34 @@ public class OrderRepository {
 //                "join o.member m " +
 //                "join o.delivery d",SimpleOrderQueryDto.class).getResultList();
 //    }
+
+    public List<Order> findAll(OrderSearch orderSearch){
+        QOrder order = QOrder.order;
+        QMember member = QMember.member;
+
+        JPAQueryFactory query = new JPAQueryFactory(em);
+
+        return query.select(order)
+                .from(order)
+                .join(order.member, member)
+                .where(statusEq(orderSearch.getOrderStatus()), nameLike(orderSearch.getMemberName()))
+                .limit(1000)
+                .fetch();
+    }
+
+    private BooleanExpression statusEq(OrderStatus condition){
+        if (condition == null){
+            return null;
+        }
+        return QOrder.order.orderStatus.eq(condition);
+    }
+
+    private BooleanExpression nameLike(String memberName){
+        if (!StringUtils.hasText(memberName)){
+            return null;
+        }
+        return QMember.member.name.like(memberName);
+    }
 
     public List<Order> findAllWithItem() {
         // distinct 는 JPA 에서 조회쿼리를 날렸을 떄 조회된 값이 같은 객체를 가리키고 있으면 중복을 제거하고 하나의 데이터만 넘겨준다.
